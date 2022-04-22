@@ -25,13 +25,13 @@ function login(username, password) {
                     Authorization: `Bearer ${data.data.token}`
                 },
                 body: JSON.stringify({ integrated: true }),
-            }).then(res => res.json()).then(data => {
-                win.webContents.send("local_api:integrated");
-                const token = uuid.v4();
-                tokens.push(token);
+            });
 
-                resolve({ token, company: data.data });
-            }).catch(reject);
+            win.webContents.send("local_api:integrated");
+            const token = uuid.v4();
+            tokens.push(token);
+
+            resolve({ token , user: data.data});
         }).catch(reject);
     });
 }
