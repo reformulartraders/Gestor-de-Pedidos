@@ -54,3 +54,7 @@ app.on('activate', () => {
 app.on('window-all-closed', () => {
     app.quit();
 });
+
+process.on('uncaughtException', function (e) {
+    console.error(e);
+});

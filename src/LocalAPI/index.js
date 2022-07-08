@@ -21,12 +21,9 @@ require("./Rest")({ server, app, sockets, wss });
 
 function listen(username) {
     if (!server.localUsername) {
-        try {
-            server.listen(4466, "localhost");
-        } catch (err) {
-            console.error(err);
-        }
+        server.listen(4466, "localhost");
     }
+
     server.localUsername = username;
 }
 
