@@ -357,6 +357,12 @@
                     <%= TranslatePaymentMethod(order.payment_method); %>
                 </span>
             </div>
+            <% if(!order.payment_status) { %>
+                <div class="name-value-item reverse-colors">
+                    <span class="name">Cobrar do cliente</span>
+                    <span class="value"><%= MoneyFormat(order.total); %></span>
+                </div>
+            <% } %>
             <% if(order.cash_change> 0) { %>
                 <div class="name-value-item">
                     <span class="name">Troco</span>
